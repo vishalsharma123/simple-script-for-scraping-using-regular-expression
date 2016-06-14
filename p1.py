@@ -11,13 +11,13 @@ from itertools import chain
 
 
 
-url = "file:///C:/Users/Admin/Desktop/p1.html"
+url = ""   #url
 i=0
 while i<len(url):
-    url = "file:///C:/Users/Admin/Desktop/p1.html"
+    url = " "
     htmlfile = urllib2.urlopen(url)
     htmltext = htmlfile.read()
-    regex = '<div class="Telephone " >(.+?)</div>'
+    regex = '<div class="[] " >(.+?)</div>'
     pattern = re.compile(regex)
     Telephone = re.findall(pattern,htmltext)
     print(Telephone)
@@ -30,25 +30,25 @@ while i<len(url):
 
 
 
-url = "file:///C:/Users/Admin/Desktop/p1.html"
+url = ""
 i=0
 while i<len(url):
-    url = "file:///C:/Users/Admin/Desktop/p1.html"
+    url = " "
     htmlfile = urllib2.urlopen(url)
     htmltext = htmlfile.read()
-    regex = '<div class="Fax">(.+?)</div>'
+    regex = '<div class="[]">(.+?)</div>'
     pattern = re.compile(regex)
     Fax = re.findall(pattern,htmltext)
     print(Fax)
     i+=1
     break
-url = "file:///C:/Users/Admin/Desktop/p1.html"
+url = " "
 i=0
 while i<len(url):
-    url = "file:///C:/Users/Admin/Desktop/p1.html"
+    url = " "
     htmlfile = urllib2.urlopen(url)
     htmltext = htmlfile.read()
-    regex = '<div class="MobilePhone">(.+?)</div>'
+    regex = '<div class="[]">(.+?)</div>'
     pattern = re.compile(regex)
     MobilePhone = re.findall(pattern,htmltext)
     print(MobilePhone)
@@ -57,17 +57,11 @@ while i<len(url):
 zip(zip(Telephone, Fax, MobilePhone))
 
 
-result = [('Telephone',',', 'Fax',',', 'MobilePhone')] + zip(zip(Telephone, Fax, MobilePhone))
+result = [('Value1',',', 'Value2',',', 'value3')] + zip(zip(value1, value2, value3))
 with open('file.csv', 'wb') as fin:
-    writer = csv.writer(fin, delimiter = '\t')
+    writer = csv.writer(fin, delimiter = '\t')# you can change delimiter according to your parameter
     writer.writerows(result)
-    header = [('Telephone'),('Fax'),('MobilePhone')]
-    result = zip(zip('Telephone', 'Fax', 'MobilePhone'))
-##    format_string = "{:>10}{:>10}{:>10}"
-##    with open('file.csv', 'wb') as fin:
-##        fin.write(format_string.format(*header))
-##        fin.write('\n')
-##    for row in result:
-##        fin.write(format_string.format(*row))
-##        fin.write('\n')
+    header = [('value1'),('value2'),('value3')]
+    result = zip(zip('value1', 'value2', 'value3'))
+
 
